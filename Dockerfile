@@ -3,7 +3,7 @@ FROM alpine:3.5
 # FROM frolvlad/alpine-glibc
 
 # author
-MAINTAINER finebaas
+MAINTAINER ChinaArjun
 # install bash
 RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.5/main/" > /etc/apk/repositories
 RUN apk update \
