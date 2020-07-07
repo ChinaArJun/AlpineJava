@@ -1,5 +1,5 @@
 FROM alpine:3.10
-LABEL maintainer="john.lin@ringcentral.com"
+LABEL maintainer="llxwxx@gmail.com"
 
 ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
