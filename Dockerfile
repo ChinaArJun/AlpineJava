@@ -19,11 +19,16 @@ ENV LANG=en_US.UTF-8 \
 # Replace repositories to China Mirror
 # https://mirrors.ustc.edu.cn/help/alpine.html
 #========================
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
+RUN echo http://mirrors.aliyun.com/alpine/v3.10/main/ > /etc/apk/repositories && \
+    echo http://mirrors.aliyun.com/alpine/v3.10/community/ >> /etc/apk/repositories
 
 RUN apk update \
-    && apk add --no-cache ca-certificates bash git openssh zip subversion sshpass curl openssl imagemagick wkhtmltopdf
+    && apk add --no-cache ca-certificates bash openssh openssl imagemagick 
 
+# wkhtmltopdf
+COPY wkhtmltopdf /bin/wkhtmltopdf
+# 3.add chinese font `SourceHanSansCN` to the container
+COPY fonts/SourceHanSansCN-Normal.otf /usr/share/fonts/SourceHanSansCN-Normal.otf
 
 #====================
 # Install GNU Libc
